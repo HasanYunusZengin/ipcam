@@ -10,7 +10,8 @@ final class ViewController: UIViewController,
 
     // MARK: - Configuration
 
-    private let port: NWEndpoint.Port = 8888
+    private let port: NWEndpoint.Port = 8888let result =
+    CMVideoFormatDescriptionGetH264ParameterSetAtIndex(
     private let targetFPS: Double = 60
     private let targetBitrate = 10_000_000
 
@@ -937,14 +938,14 @@ final class ViewController: UIViewController,
             var parameterSize = 0
 
             let result =
-                CMVideoFormatDescriptionGetH264ParameterSetAtIndex(
-                    format,
-                    parameterSetIndex: index,
-                    parameterSetPointer: &parameterPointer,
-                    parameterSetSize: &parameterSize,
-                    parameterSetCount: nil,
-                    nalUnitHeaderLength: nil
-                )
+    CMVideoFormatDescriptionGetH264ParameterSetAtIndex(
+        format,
+        parameterSetIndex: index,
+        parameterSetPointerOut: &parameterPointer,
+        parameterSetSizeOut: &parameterSize,
+        parameterSetCountOut: nil,
+        nalUnitHeaderLengthOut: nil
+    )
 
             if result == noErr,
                let pointer = parameterPointer,
